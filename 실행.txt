@@ -1,0 +1,2 @@
+1. 터미널 .\start-dev.cmd
+2. O + Enter

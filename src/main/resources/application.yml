@@ -1,0 +1,56 @@
+spring:
+  application:
+    name: dohwa-link
+  profiles:
+    active: local
+  jpa:
+    open-in-view: false
+
+server:
+  port: 8080
+
+logging:
+  level:
+    org.hibernate.SQL: warn
+    org.hibernate.orm.jdbc.bind: warn
+    org.hibernate.tool.schema.internal.ExceptionHandlerLoggedImpl: off
+
+---
+spring:
+  config:
+    activate:
+      on-profile: local
+  datasource:
+    url: jdbc:h2:file:./data/dohwa;MODE=Oracle;DATABASE_TO_UPPER=false;AUTO_SERVER=TRUE
+    driver-class-name: org.h2.Driver
+    username: sa
+    password:
+  jpa:
+    hibernate:
+      ddl-auto: update
+    defer-datasource-initialization: true
+    properties:
+      hibernate:
+        format_sql: false
+    show-sql: false
+
+---
+spring:
+  config:
+    activate:
+      on-profile: oracle
+  datasource:
+    url: jdbc:oracle:thin:@localhost:1521/XEPDB1
+    driver-class-name: oracle.jdbc.OracleDriver
+    username: DOHWA
+    password: dohwa1234
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.OracleDialect
+        format_sql: false
+    show-sql: false
+
+
