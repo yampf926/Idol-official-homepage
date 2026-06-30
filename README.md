@@ -163,11 +163,3 @@ PUT  /api/notifications/{notificationId}/read
 GET  /api/chat/messages
 POST /api/chat/messages
 ```
-
-## 앞으로 개선할 점
-
-- `main.jsx` 컴포넌트 분리
-- 비밀번호 BCrypt 암호화
-- `memberId` 파라미터 기반 인증을 JWT 또는 세션 인증으로 교체
-- 관리자 화면 추가
-- 서비스 테스트 코드 추가
