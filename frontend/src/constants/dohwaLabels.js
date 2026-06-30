@@ -23,6 +23,6 @@ export const prefixLabels = {
 const DOHWA_EMAIL = 'dohwa0412@dohwa.com';
 
 // 특정 이메일 계정은 일반 FAN 권한이어도 화면에서는 아티스트로 표시합니다.
-const isDohwaMember = (member) => member?.email?.toLowerCase() === DOHWA_EMAIL;
+export const isDohwaMember = (member) => member?.email?.toLowerCase() === DOHWA_EMAIL;
 
 export const roleLabel = (member) => isDohwaMember(member) ? '아티스트' : member?.role;

@@ -2,7 +2,7 @@
 import { useLocation, useNavigate } from 'react-router-dom';
 import { api, apiBaseUrl } from './api';
 import { BackendStatus, EmptyState, Events, LoginRequired, NoticeList, Notifications, NotFound, SectionTitle } from './components/CommonComponents';
-import { boardLabels, prefixLabels, roleLabel } from './constants/dohwaLabels';
+import { boardLabels, isDohwaMember, prefixLabels, roleLabel } from './constants/dohwaLabels';
 import { useDohwaData } from './hooks/useDohwaData';
 import { errorMessage, isAuthError, isBackendConnectionError } from './utils/apiErrors';
 import { resizeImageFile } from './utils/imageFiles';
