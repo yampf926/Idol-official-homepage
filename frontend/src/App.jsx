@@ -9,6 +9,8 @@ import { resizeImageFile } from './utils/imageFiles';
 import { clearStoredMember, loadSavedMember, saveStoredMember } from './utils/memberStorage';
 import './styles.css';
 
+const assetUrl = (path) => `${import.meta.env.BASE_URL}${path}`.replace(/\/{2,}/g, '/');
+
 // 최상위 앱 컴포넌트입니다. 라우팅, 공통 데이터 로딩, 로그인 세션, 전역 토스트를 관리합니다.
 export default function App() {
   const location = useLocation();
@@ -187,7 +189,7 @@ export default function App() {
         </nav>
       </header>
       <main>
-        <audio ref={audioRef} src="/복숭아.mp3" loop onEnded={() => setMusicOn(false)} />
+        <audio ref={audioRef} src={assetUrl('peach.mp3')} loop onEnded={() => setMusicOn(false)} />
         {(loading || hasBusyAction) && <div className="global-loading" role="status">{hasBusyAction ? '요청을 처리하는 중입니다.' : '데이터를 불러오는 중입니다.'}</div>}
         {loadError && <BackendStatus message={loadError} isBackendConnectionError={isBackendConnectionError} apiBaseUrl={apiBaseUrl} />}
         {tab === 'home' && <Home artist={artist} concerts={concerts} events={events} posts={posts} notices={notices} fanDashboard={fanDashboard} currentMember={currentMember} musicOn={musicOn} toggleMusic={toggleMusic} setTab={setTab} openCafePost={openCafePost} />}
@@ -347,7 +349,7 @@ function Home({ artist, concerts = [], events = [], posts = [], notices = [], fa
         </div>
       </div>
       <button className="home-visual" onClick={() => setTab('concerts')} aria-label="공연 예매 페이지로 이동">
-        <img src="/DOHWA 1st concert.png" alt="DOHWA 1st concert" />
+        <img src={assetUrl('DOHWA 1st concert.png')} alt="DOHWA 1st concert" />
       </button>
     </div>
 
